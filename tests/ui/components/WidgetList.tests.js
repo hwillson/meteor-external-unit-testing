@@ -2,7 +2,7 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { expect } from 'chai';
 
-import { WidgetList } from '../../../imports/ui/components/WidgetList.js';
+import WidgetList from '../../../src/imports/ui/components/WidgetList.js';
 
 describe('ui.components', function () {
   describe('WidgetList', function () {

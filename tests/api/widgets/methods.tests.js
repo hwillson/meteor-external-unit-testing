@@ -1,27 +1,29 @@
 import { expect } from 'chai';
 import td from 'testdouble';
 
+import { createWidget } from '../../../src/imports/api/widgets/methods.js';
+import widgets from '../../../src/imports/api/widgets/collection.js';
+
 describe('api.widgets.methods', function () {
   describe('createWidget', function () {
-    let widgets = td.object(['insert']);
-    let ValidatedMethod = td.function();
-    let createWidget;
-
-    beforeEach(function () {
-      td.replace('meteor/mdg:validated-method', { ValidatedMethod });
-      td.replace('../../../imports/api/widgets/collection.js', widgets);
-      createWidget =
-        require('../../../imports/api/widgets/methods.js').createWidget;
-    });
-
     afterEach(function () {
       td.reset();
     });
 
-    it('should insert into widget collection', function () {
+    it(
+      'should be registered',
+      function () {
+        expect(createWidget).to.be.defined;
+        const ValidatedMethod = Package['mdg:validated-method'].ValidatedMethod;
+        expect(createWidget instanceof ValidatedMethod).to.be.true;
+      }
+    );
+
+    it('should insert into widget collection', sinon.test(function () {
       const widget = { name: 'Test Widget'};
-      createWidget.spec.run(widget);
+      td.replace(widgets, 'insert');
+      createWidget.call(widget);
       td.verify(widgets.insert(widget));
-    });
+    }));
   });
 });

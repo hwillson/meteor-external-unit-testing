@@ -1,7 +1,9 @@
 import React from 'react';
 
-export const WidgetList = () => (
+const WidgetList = () => (
   <div className="widgets">
     Widgets will print here ...
   </div>
 );
+
+export default WidgetList;

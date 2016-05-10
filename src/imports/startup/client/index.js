@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import WidgetList from '/imports/ui/components/WidgetList.js';
+import WidgetList from '../../ui/components/WidgetList.js';
 
 render(<WidgetList />, document.getElementById('app'));

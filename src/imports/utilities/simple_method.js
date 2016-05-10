@@ -1,4 +1,5 @@
-import { ValidatedMethod } from 'meteor/mdg:validated-method';
+const ValidatedMethod = Package['mdg:validated-method'].ValidatedMethod;
+// import { ValidatedMethod } from 'meteor/mdg:validated-method';
 
 export default class SimpleMethod {
   constructor(spec) {
